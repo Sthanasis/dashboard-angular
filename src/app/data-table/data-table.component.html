@@ -1,0 +1,35 @@
+<div class="border rounded-lg overflow-auto">
+  <table class="w-full">
+    <thead class="border-b bg-primary bg-opacity-level-20">
+      <th
+        *ngFor="let column of columns; index as i"
+        class="p-2 text-start whitespace-nowrap"
+        [class]="{ 'border-r': i < columns.length - 1 }"
+      >
+        <div class="flex items-center gap-2">
+          <span>{{ column.value }}</span>
+          <button
+            (click)="column.action?.(column.name)"
+            class="rounded-full hover:bg-black hover:bg-opacity-level-10 focus:bg-opacity-level-30 p-1 transition-colors"
+          >
+            <ng-container *ngComponentOutlet="column.icon" />
+          </button>
+        </div>
+      </th>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let row of rows; index as i"
+        class="hover:bg-tertiary hover:bg-opacity-level-20 transition-colors"
+      >
+        <td
+          *ngFor="let item of row.items; index as j"
+          class="p-2"
+          [class]="{ 'border-r': j < row.items.length - 1 }"
+        >
+          {{ item.value }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
