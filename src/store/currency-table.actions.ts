@@ -3,7 +3,7 @@ import {
   ApiResponseItem,
   ApiResponseItemKey,
 } from '../services/apiResponseItem.type';
-import { SortingOrder } from '../app/data-table/sortingOrder.enum';
+import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
 export const loadCurrencyData = createAction(
   '[Currency Table Component] LoadCurrencyData'

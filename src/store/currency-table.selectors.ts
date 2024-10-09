@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { CurrencyTableState } from './currency-table.reducer';
-import { SortingOrder } from '../app/data-table/sortingOrder.enum';
+import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
 type AppState = { currencyTableReducer: CurrencyTableState };
 

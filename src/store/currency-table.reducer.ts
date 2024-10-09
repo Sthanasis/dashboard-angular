@@ -12,7 +12,7 @@ import {
   ApiResponseItemKey,
 } from '../services/apiResponseItem.type';
 import { Column, Row } from '../app/data-table/data-table.types';
-import { SortingOrder } from '../app/data-table/sortingOrder.enum';
+import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
 export interface CurrencyTableState {
   data: ApiResponseItem[];

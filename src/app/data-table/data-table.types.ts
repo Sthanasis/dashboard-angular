@@ -1,4 +1,4 @@
-import { SortingOrder } from './sortingOrder.enum';
+import { SortingOrder } from './enums/sortingOrder.enum';
 
 export type Row<T = string> = {
   id: number;

@@ -1,4 +1,4 @@
-import { SortingOrder } from './data-table/sortingOrder.enum';
+import { SortingOrder } from './data-table/enums/sortingOrder.enum';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataTableComponent } from './data-table/data-table.component';
