@@ -41,13 +41,11 @@ const initialColumnList: Column<ApiResponseItemKey>[] = [
   { id: 'low_24h', value: 'Low 24h', sortingOrder: SortingOrder.default },
   {
     id: 'price_change_percentage_24h',
-
     value: 'Price Change percentage 24h',
     sortingOrder: SortingOrder.default,
   },
   {
     id: 'circulating_supply',
-
     value: 'Circulating Supply',
     sortingOrder: SortingOrder.default,
   },
@@ -86,16 +84,13 @@ export const currencyTableReducer = createReducer(
     filteredColumns: state.filteredColumns.filter(
       (columnId) => columnId !== id
     ),
-    // filter in column from column list
-    // set filter active status to true
   })),
   on(hideTableColumn, (state, { id }) => ({
     ...state,
     filteredColumns: [...state.filteredColumns, id],
-    // filter out column from column list
-    // set filter active status to false
   })),
-  on(sortColumn, (state, { id, order }) => {
-    return { ...state, sortOptions: { id, order } };
-  })
+  on(sortColumn, (state, { id, order }) => ({
+    ...state,
+    sortOptions: { id, order },
+  }))
 );
