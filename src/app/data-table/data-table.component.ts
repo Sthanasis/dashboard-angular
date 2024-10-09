@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgFor, NgIf, NgComponentOutlet } from '@angular/common';
-import { Column, Row } from './data-table.types';
+import { Column, Row } from './types/data-table.types';
 import { SortIconComponent } from '../sort-icon/sort-icon.component';
 import { SortingOrder } from './enums/sortingOrder.enum';
 import { SortAscIconComponent } from '../sort-asc-icon/sort-asc-icon.component';

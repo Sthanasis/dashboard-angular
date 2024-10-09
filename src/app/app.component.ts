@@ -13,7 +13,7 @@ import {
   sortColumn,
 } from '../store/currency-table.actions';
 import { Observable } from 'rxjs';
-import { Column, Row } from './data-table/data-table.types';
+import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { CurrencyTableState } from '../store/currency-table.reducer';
 @Component({
