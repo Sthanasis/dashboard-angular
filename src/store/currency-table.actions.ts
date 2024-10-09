@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import {
   ApiResponseItem,
   ApiResponseItemKey,
-} from '../services/apiResponseItem.type';
+} from '../services/types/apiResponseItem.type';
 import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
 export const loadCurrencyData = createAction(

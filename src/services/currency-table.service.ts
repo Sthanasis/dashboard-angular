@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponseItem } from '../services/apiResponseItem.type';
+import { ApiResponseItem } from './types/apiResponseItem.type';
 
 @Injectable({
   providedIn: 'root',

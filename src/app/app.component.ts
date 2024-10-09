@@ -2,7 +2,7 @@ import { SortingOrder } from './data-table/enums/sortingOrder.enum';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataTableComponent } from './data-table/data-table.component';
-import { ApiResponseItemKey } from '../services/apiResponseItem.type';
+import { ApiResponseItemKey } from '../services/types/apiResponseItem.type';
 import { FiltersDropdownComponent } from './filters-dropdown/filters-dropdown.component';
 import { Store } from '@ngrx/store';
 import { selectFilters, selectTable } from '../store/currency-table.selectors';
