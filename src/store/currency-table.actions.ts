@@ -3,6 +3,7 @@ import {
   ApiResponseItem,
   ApiResponseItemKey,
 } from '../services/apiResponseItem.type';
+import { SortingOrder } from '../app/data-table/sortingOrder.enum';
 
 export const loadCurrencyData = createAction(
   '[Currency Table Component] LoadCurrencyData'
@@ -29,3 +30,8 @@ export const appendTableRows = createAction(
 );
 
 export const reset = createAction('[Currency Table Component] Reset');
+
+export const sortColumn = createAction(
+  '[Currency Table Component] SortColumn',
+  props<{ id: ApiResponseItemKey; order: SortingOrder }>()
+);

@@ -1,4 +1,4 @@
-import { Type } from '@angular/core';
+import { SortingOrder } from './sortingOrder.enum';
 
 export type Row<T = string> = {
   id: number;
@@ -9,8 +9,7 @@ export type Row<T = string> = {
 };
 
 export type Column<T = string> = {
-  name: T;
+  id: T;
   value: string;
-  action?: (name: string) => void;
-  icon: Type<any>;
+  sortingOrder: SortingOrder;
 };

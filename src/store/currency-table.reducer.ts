@@ -5,46 +5,60 @@ import {
   hideTableColumn,
   reset,
   showTableColumn,
+  sortColumn,
 } from './currency-table.actions';
 import {
   ApiResponseItem,
   ApiResponseItemKey,
 } from '../services/apiResponseItem.type';
 import { Column, Row } from '../app/data-table/data-table.types';
+import { SortingOrder } from '../app/data-table/sortingOrder.enum';
 
-export interface AppState {
+export interface CurrencyTableState {
   data: ApiResponseItem[];
   columns: Column<ApiResponseItemKey>[];
   rows: Row<ApiResponseItemKey>[];
   filteredColumns: ApiResponseItemKey[];
+  sortOptions: { id: ApiResponseItemKey | null; order: SortingOrder };
 }
 
 const initialColumnList: Column<ApiResponseItemKey>[] = [
-  { id: 'id', value: 'Id' },
-  { id: 'name', value: 'Name' },
-  { id: 'symbol', value: 'Symbol' },
-  { id: 'current_price', value: 'Current Price' },
-  { id: 'market_cap', value: 'Market Cap' },
-  { id: 'total_volume', value: 'Total Volume' },
-  { id: 'high_24h', value: 'High 24h' },
-  { id: 'low_24h', value: 'Low 24h' },
+  { id: 'id', value: 'Id', sortingOrder: SortingOrder.default },
+  { id: 'name', value: 'Name', sortingOrder: SortingOrder.default },
+  { id: 'symbol', value: 'Symbol', sortingOrder: SortingOrder.default },
+  {
+    id: 'current_price',
+    value: 'Current Price',
+    sortingOrder: SortingOrder.default,
+  },
+  { id: 'market_cap', value: 'Market Cap', sortingOrder: SortingOrder.default },
+  {
+    id: 'total_volume',
+    value: 'Total Volume',
+    sortingOrder: SortingOrder.default,
+  },
+  { id: 'high_24h', value: 'High 24h', sortingOrder: SortingOrder.default },
+  { id: 'low_24h', value: 'Low 24h', sortingOrder: SortingOrder.default },
   {
     id: 'price_change_percentage_24h',
 
     value: 'Price Change percentage 24h',
+    sortingOrder: SortingOrder.default,
   },
   {
     id: 'circulating_supply',
 
     value: 'Circulating Supply',
+    sortingOrder: SortingOrder.default,
   },
 ];
 
-export const initialState: AppState = {
+export const initialState: CurrencyTableState = {
   data: [],
   columns: initialColumnList,
   rows: [],
   filteredColumns: [],
+  sortOptions: { id: null, order: SortingOrder.default },
 };
 
 export const currencyTableReducer = createReducer(
@@ -80,5 +94,8 @@ export const currencyTableReducer = createReducer(
     filteredColumns: [...state.filteredColumns, id],
     // filter out column from column list
     // set filter active status to false
-  }))
+  })),
+  on(sortColumn, (state, { id, order }) => {
+    return { ...state, sortOptions: { id, order } };
+  })
 );

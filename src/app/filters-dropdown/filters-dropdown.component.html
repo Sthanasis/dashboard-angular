@@ -1,0 +1,24 @@
+<div class="relative">
+  <button class="px-3 py-1 bg-secondary" (click)="toggleIsOpen()">
+    Filters
+  </button>
+  <div
+    *ngIf="isOpen"
+    class="fixed w-full h-full top-0 left-0 z-[1]"
+    (click)="close()"
+  ></div>
+  <ul *ngIf="isOpen" class="z-[1] absolute bg-white shadow-lg py-2 rounded-lg">
+    <li
+      *ngFor="let filter of filters"
+      class="cursor-pointer hover:bg-black hover:bg-opacity-level-10 px-2"
+    >
+      <button
+        class="flex justify-between items-center gap-4 w-full p-2"
+        (click)="filterClicked(filter.id, filter.isActive)"
+      >
+        <span class="">{{ filter.name }}</span>
+        <input type="checkbox" [checked]="filter.isActive" />
+      </button>
+    </li>
+  </ul>
+</div>
