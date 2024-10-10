@@ -10,5 +10,6 @@
     [rows]="table.rows"
     (sortByColumn)="sortByColumn($event.id, $event.order)"
   />
+  <app-pagination [total]="[10, 25, 50, 100]" [currentTotal]="10" />
 </div>
 <router-outlet />

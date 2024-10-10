@@ -15,10 +15,13 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#a05aff',
-        secondary: '#1bcfb4',
-        tertiary: '#fe9496',
+        primary: '#4e7cff',
+        secondary: '#7033ff',
+        tertiary: '#f65164',
+        'smokey-gray': '#f5f7fb',
+        'snow-white': '#ffffff',
+        'dark-steel': '#33394c',
       },
     },
   },
-}
+};

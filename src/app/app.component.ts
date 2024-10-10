@@ -16,6 +16,7 @@ import { Observable } from 'rxjs';
 import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { CurrencyTableState } from '../store/currency-table.reducer';
+import { PaginationComponent } from './pagination/pagination.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,6 +27,7 @@ import { CurrencyTableState } from '../store/currency-table.reducer';
     AsyncPipe,
     NgIf,
     JsonPipe,
+    PaginationComponent,
   ],
   templateUrl: './app.component.html',
 })

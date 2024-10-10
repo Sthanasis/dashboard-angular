@@ -1,0 +1,44 @@
+<div class="flex justify-end">
+  <div class="flex gap-2 items-center">
+    <span>Per Page</span>
+    <div class="relative">
+      <button
+        class="px-2 py-1 border rounded-md bg-snow-white"
+        (click)="setIsDropDownOpen(true)"
+      >
+        {{ currentTotal }}
+      </button>
+      <div
+        *ngIf="isDropDownOpen"
+        class="fixed w-full h-full top-0 left-0 z-[1]"
+        (click)="setIsDropDownOpen(false)"
+      ></div>
+      <ul
+        *ngIf="isDropDownOpen"
+        class="z-[1] absolute bg-white shadow-lg py-2 rounded-lg"
+      >
+        <li
+          *ngFor="let num of total"
+          class="cursor-pointer hover:bg-black hover:bg-opacity-level-10 px-2"
+        >
+          <button
+            class="flex justify-between items-center gap-4 w-full p-2"
+            (click)="onTotalChange(num)"
+          >
+            {{ num }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button
+    class="rounded-full p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30"
+  >
+    <span class="w-4 h-4 p-1"><</span>
+  </button>
+  <button
+    class="rounded-full p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30"
+  >
+    <span class="w-4 h-4 p-1">></span>
+  </button>
+</div>
