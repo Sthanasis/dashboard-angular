@@ -1,9 +1,9 @@
-<div class="flex justify-end">
+<div class="flex justify-end items-center gap-2 px-4">
   <div class="flex gap-2 items-center">
     <span>Per Page</span>
     <div class="relative">
       <button
-        class="px-2 py-1 border rounded-md bg-snow-white"
+        class="px-3 py-2 border rounded-md bg-snow-white"
         (click)="setIsDropDownOpen(true)"
       >
         {{ currentTotal }}
@@ -15,7 +15,7 @@
       ></div>
       <ul
         *ngIf="isDropDownOpen"
-        class="z-[1] absolute bg-white shadow-lg py-2 rounded-lg"
+        class="z-[1] absolute bg-white shadow-lg border border-smokey-gray py-2 rounded-lg right-0 bottom-full"
       >
         <li
           *ngFor="let num of total"
@@ -31,14 +31,19 @@
       </ul>
     </div>
   </div>
-  <button
-    class="rounded-full p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30"
-  >
-    <span class="w-4 h-4 p-1"><</span>
-  </button>
-  <button
-    class="rounded-full p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30"
-  >
-    <span class="w-4 h-4 p-1">></span>
-  </button>
+  <div>
+    <button
+      class="rounded-full w-6 h-6 p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30 disabled:hover:bg-transparent disabled:text-gray-400"
+      [disabled]="currentPage <= 1"
+      (click)="onPreviousPage(currentPage)"
+    >
+      <app-previous-icon></app-previous-icon>
+    </button>
+    <button
+      class="rounded-full w-6 h-6 p-1 hover:bg-black hover:bg-opacity-level-10 focus:bg-black focus:bg-opacity-level-30"
+      (click)="onNextPage(currentPage)"
+    >
+      <app-next-icon></app-next-icon>
+    </button>
+  </div>
 </div>

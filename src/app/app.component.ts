@@ -17,6 +17,8 @@ import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { CurrencyTableState } from '../store/currency-table.reducer';
 import { PaginationComponent } from './pagination/pagination.component';
+import { setCurrentPage, setTotalPerPage } from '../store/pagination.actions';
+import { selectPagination } from '../store/pagination.selectors';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -37,10 +39,9 @@ export class AppComponent implements OnInit {
     rows: Row<ApiResponseItemKey>[];
   }> = this.store.select((state) => selectTable(state));
   filters$ = this.store.select((state) => selectFilters(state));
+  pagination$ = this.store.select((state) => selectPagination(state));
 
-  constructor(
-    private store: Store<{ currencyTableReducer: CurrencyTableState }>
-  ) {}
+  constructor(private store: Store) {}
 
   filterColumn(id: unknown, isActive: boolean) {
     if (isActive)
@@ -50,6 +51,18 @@ export class AppComponent implements OnInit {
 
   sortByColumn(id: unknown, order: SortingOrder) {
     this.store.dispatch(sortColumn({ id: id as ApiResponseItemKey, order }));
+  }
+
+  loadNextPage(page: number) {
+    this.store.dispatch(setCurrentPage({ page: page + 1 }));
+  }
+
+  loadPreviousPage(page: number) {
+    this.store.dispatch(setCurrentPage({ page: page - 1 }));
+  }
+
+  handleTotalChange(total: number) {
+    this.store.dispatch(setTotalPerPage({ total }));
   }
 
   ngOnInit() {

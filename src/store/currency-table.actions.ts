@@ -29,9 +29,9 @@ export const appendTableRows = createAction(
   props<{ data: ApiResponseItem[] }>()
 );
 
-export const reset = createAction('[Currency Table Component] Reset');
-
 export const sortColumn = createAction(
   '[Currency Table Component] SortColumn',
   props<{ id: ApiResponseItemKey; order: SortingOrder }>()
 );
+
+export const reset = createAction('[Currency Table Component] Reset');

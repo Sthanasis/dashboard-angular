@@ -14,12 +14,19 @@ import {
 import { Column, Row } from '../app/data-table/types/data-table.types';
 import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
+export const currencyTableFeatureKey = 'currencyTable';
+
+export type SortOptions = {
+  id: ApiResponseItemKey | null;
+  order: SortingOrder;
+};
+
 export interface CurrencyTableState {
   data: ApiResponseItem[];
   columns: Column<ApiResponseItemKey>[];
   rows: Row<ApiResponseItemKey>[];
   filteredColumns: ApiResponseItemKey[];
-  sortOptions: { id: ApiResponseItemKey | null; order: SortingOrder };
+  sortOptions: SortOptions;
 }
 
 const initialColumnList: Column<ApiResponseItemKey>[] = [
@@ -63,22 +70,18 @@ export const currencyTableReducer = createReducer(
   initialState,
   on(appendCurrencyData, (state, { data }) => ({
     ...state,
-    data: [...state.data, ...data],
+    data,
   })),
   on(appendTableRows, (state, { data }) => ({
     ...state,
-    rows: [
-      ...state.rows,
-      ...data.map((item, i) => ({
-        id: i,
-        items: state.columns.map((column) => ({
-          name: column.id,
-          value: item[column.id],
-        })),
+    rows: data.map((item, i) => ({
+      id: i,
+      items: state.columns.map((column) => ({
+        name: column.id,
+        value: item[column.id],
       })),
-    ],
+    })),
   })),
-  on(reset, () => initialState),
   on(showTableColumn, (state, { id }) => ({
     ...state,
     filteredColumns: state.filteredColumns.filter(
@@ -92,5 +95,6 @@ export const currencyTableReducer = createReducer(
   on(sortColumn, (state, { id, order }) => ({
     ...state,
     sortOptions: { id, order },
-  }))
+  })),
+  on(reset, () => initialState)
 );

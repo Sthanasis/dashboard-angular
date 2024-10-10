@@ -6,6 +6,7 @@ import {
   appendCurrencyData,
   appendTableRows,
   loadCurrencyData,
+  sortColumn,
 } from './currency-table.actions';
 
 @Injectable()
@@ -23,6 +24,7 @@ export class CurrencyTableEffects {
       )
     );
   });
+
   constructor(
     private actions$: Actions,
     private currencyService: CurrencyTableService

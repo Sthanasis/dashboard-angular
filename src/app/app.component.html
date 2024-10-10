@@ -10,6 +10,14 @@
     [rows]="table.rows"
     (sortByColumn)="sortByColumn($event.id, $event.order)"
   />
-  <app-pagination [total]="[10, 25, 50, 100]" [currentTotal]="10" />
+  <app-pagination
+    *ngIf="pagination$ | async as pagination"
+    [total]="pagination.totalList"
+    [currentTotal]="pagination.total"
+    [currentPage]="pagination.currentPage"
+    (nextPage)="loadNextPage($event)"
+    (previousPage)="loadPreviousPage($event)"
+    (totalChange)="handleTotalChange($event)"
+  />
 </div>
 <router-outlet />

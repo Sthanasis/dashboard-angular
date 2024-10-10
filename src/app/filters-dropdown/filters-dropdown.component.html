@@ -1,6 +1,10 @@
 <div class="relative">
-  <button class="px-3 py-1 bg-secondary" (click)="toggleIsOpen()">
-    Filters
+  <button
+    class="px-3 py-2 bg-primary text-smokey-gray rounded-md flex gap-1 items-center"
+    (click)="toggleIsOpen()"
+  >
+    <span>Filters</span>
+    <app-filter-icon></app-filter-icon>
   </button>
   <div
     *ngIf="isOpen"
@@ -17,7 +21,7 @@
         (click)="filterClicked(filter.id, filter.isActive)"
       >
         <span class="">{{ filter.name }}</span>
-        <input type="checkbox" [checked]="filter.isActive" />
+        <input type="checkbox" tabindex="-1" [checked]="filter.isActive" />
       </button>
     </li>
   </ul>

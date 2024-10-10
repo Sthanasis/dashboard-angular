@@ -1,11 +1,18 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NextIconComponent } from '../next-icon/next-icon.component';
+import { PreviousIconComponent } from '../previous-icon/previous-icon.component';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [NgFor, NgIf, NextIconComponent],
+  imports: [
+    NgFor,
+    NgIf,
+    NextIconComponent,
+    PreviousIconComponent,
+    NextIconComponent,
+  ],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css',
 })
@@ -32,7 +39,7 @@ export class PaginationComponent {
     this.nextPage.emit(page);
   }
 
-  onPrevious(page: number) {
+  onPreviousPage(page: number) {
     this.previousPage.emit(page);
   }
 }

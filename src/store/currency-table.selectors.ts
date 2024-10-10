@@ -1,19 +1,38 @@
-import { createSelector } from '@ngrx/store';
-import { CurrencyTableState } from './currency-table.reducer';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import {
+  currencyTableFeatureKey,
+  CurrencyTableState,
+} from './currency-table.reducer';
 import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
 
-type AppState = { currencyTableReducer: CurrencyTableState };
+const state = createFeatureSelector<CurrencyTableState>(
+  currencyTableFeatureKey
+);
 
-const selectColumns = (state: AppState) => {
-  return state.currencyTableReducer.columns;
+const selectColumns = createSelector(state, (state) => {
+  return state.columns;
+});
+const selectFilteredColumns = createSelector(
+  state,
+  (state) => state.filteredColumns
+);
+
+const selectRows = createSelector(state, (state) => state.rows);
+
+const selectSortingOptions = createSelector(
+  state,
+  (state) => state.sortOptions
+);
+
+const compare = (a: string | number, b: string | number) => {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
 };
-const selectFilteredColumns = (state: AppState) =>
-  state.currencyTableReducer.filteredColumns;
-
-const selectRows = (state: AppState) => state.currencyTableReducer.rows;
-
-const selectSortingOptions = (state: AppState) =>
-  state.currencyTableReducer.sortOptions;
 
 export const selectTableColumns = createSelector(
   selectColumns,
@@ -28,16 +47,6 @@ export const selectTableColumns = createSelector(
       .filter((column) => !filteredColumnIds.includes(column.id));
   }
 );
-
-const compare = (a: string | number, b: string | number) => {
-  if (a > b) {
-    return 1;
-  } else if (a < b) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
 
 export const selectTableRows = createSelector(
   selectFilteredColumns,
