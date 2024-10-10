@@ -10,9 +10,9 @@ import {
 import {
   ApiResponseItem,
   ApiResponseItemKey,
-} from '../services/types/apiResponseItem.type';
-import { Column, Row } from '../app/data-table/types/data-table.types';
-import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
+} from '../../services/types/apiResponseItem.type';
+import { Column, Row } from '../../app/data-table/types/data-table.types';
+import { SortingOrder } from '../../app/data-table/enums/sortingOrder.enum';
 
 export const currencyTableFeatureKey = 'currencyTable';
 

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { PaginationEffects } from './pagination.effects';
+import { PaginationEffects } from '../pagination.effects';
 
 describe('PaginationEffects', () => {
   let actions$: Observable<any>;

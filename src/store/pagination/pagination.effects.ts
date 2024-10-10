@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, EMPTY, exhaustMap, of, switchMap } from 'rxjs';
-import { CurrencyTableService } from '../services/currency-table.service';
-import { appendCurrencyData, appendTableRows } from './currency-table.actions';
+import { CurrencyTableService } from '../../services/currency-table.service';
+import {
+  appendCurrencyData,
+  appendTableRows,
+} from '../currency-table/currency-table.actions';
 import { setCurrentPage, setTotalPerPage } from './pagination.actions';
 
 @Injectable()

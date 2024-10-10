@@ -1,8 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { reset, setCurrentPage, setTotalPerPage } from './pagination.actions';
+import { TotalCount } from '../constants/totalCount';
 
 export const paginationFeatureKey = 'pagination';
-export const INITIAL_TOTAL_COUNT = 25;
+export const INITIAL_TOTAL_COUNT = TotalCount.TwentyFive;
 export interface PaginationState {
   totalList: number[];
   total: number;
@@ -10,7 +11,7 @@ export interface PaginationState {
 }
 
 export const initialState: PaginationState = {
-  totalList: [10, 25, 50, 100, 250],
+  totalList: Object.values(TotalCount),
   total: INITIAL_TOTAL_COUNT,
   currentPage: 1,
 };

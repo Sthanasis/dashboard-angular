@@ -5,20 +5,25 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { ApiResponseItemKey } from '../services/types/apiResponseItem.type';
 import { FiltersDropdownComponent } from './filters-dropdown/filters-dropdown.component';
 import { Store } from '@ngrx/store';
-import { selectFilters, selectTable } from '../store/currency-table.selectors';
+import {
+  selectFilters,
+  selectTable,
+} from '../store/currency-table/currency-table.selectors';
 import {
   hideTableColumn,
   loadCurrencyData,
   showTableColumn,
   sortColumn,
-} from '../store/currency-table.actions';
+} from '../store/currency-table/currency-table.actions';
 import { Observable } from 'rxjs';
 import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
-import { CurrencyTableState } from '../store/currency-table.reducer';
 import { PaginationComponent } from './pagination/pagination.component';
-import { setCurrentPage, setTotalPerPage } from '../store/pagination.actions';
-import { selectPagination } from '../store/pagination.selectors';
+import {
+  setCurrentPage,
+  setTotalPerPage,
+} from '../store/pagination/pagination.actions';
+import { selectPagination } from '../store/pagination/pagination.selectors';
 @Component({
   selector: 'app-root',
   standalone: true,

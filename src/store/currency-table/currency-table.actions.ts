@@ -2,8 +2,8 @@ import { createAction, props } from '@ngrx/store';
 import {
   ApiResponseItem,
   ApiResponseItemKey,
-} from '../services/types/apiResponseItem.type';
-import { SortingOrder } from '../app/data-table/enums/sortingOrder.enum';
+} from '../../services/types/apiResponseItem.type';
+import { SortingOrder } from '../../app/data-table/enums/sortingOrder.enum';
 
 export const loadCurrencyData = createAction(
   '[Currency Table Component] LoadCurrencyData'
