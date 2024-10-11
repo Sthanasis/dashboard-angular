@@ -17,14 +17,7 @@ import {
   showTableColumn,
   sortColumn,
 } from '../store/currency-table/currency-table.actions';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  Observable,
-  of,
-  Subject,
-  switchMap,
-} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { PaginationComponent } from './pagination/pagination.component';
@@ -57,6 +50,7 @@ export class AppComponent implements OnInit {
   filters$ = this.store.select((state) => selectFilters(state));
   pagination$ = this.store.select((state) => selectPagination(state));
   searchText$ = this.store.select((state) => selectSearchText(state));
+  timeout: ReturnType<typeof setTimeout> | undefined;
 
   constructor(private store: Store) {}
 
@@ -83,7 +77,10 @@ export class AppComponent implements OnInit {
   }
 
   handleSearch(text: string) {
-    this.store.dispatch(setSearchText({ text }));
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.store.dispatch(setSearchText({ text }));
+    }, 500);
   }
 
   ngOnInit() {

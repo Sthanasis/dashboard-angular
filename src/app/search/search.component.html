@@ -1,9 +1,14 @@
-<form (submit)="$event.preventDefault()">
+<label
+  class="flex bg-white border-gray-200 border items-center px-2 rounded-md w-fit"
+  tabindex="-1"
+>
+  <app-search-icon></app-search-icon>
   <input
-    class="bg-white border-gray-200 border rounded-md p-2 border-solid"
+    class="p-2 border-solid focus:outline-none"
     type="text"
     name="text"
+    aria-label="search"
     [(ngModel)]="text"
     (input)="onTextChange()"
   />
-</form>
+</label>

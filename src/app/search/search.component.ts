@@ -1,21 +1,18 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SearchIconComponent } from '../search-icon/search-icon.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, SearchIconComponent],
   templateUrl: './search.component.html',
 })
 export class SearchComponent {
   text: string = '';
-  timeout: ReturnType<typeof setTimeout> | undefined;
   @Output() textChange = new EventEmitter<string>();
 
   onTextChange() {
-    if (this.timeout) clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => {
-      this.textChange.emit(this.text);
-    }, 500);
+    this.textChange.emit(this.text);
   }
 }
