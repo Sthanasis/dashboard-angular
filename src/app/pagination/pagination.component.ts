@@ -1,18 +1,11 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NextIconComponent } from '../next-icon/next-icon.component';
-import { PreviousIconComponent } from '../previous-icon/previous-icon.component';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [
-    NgFor,
-    NgIf,
-    NextIconComponent,
-    PreviousIconComponent,
-    NextIconComponent,
-  ],
+  imports: [NgFor, NgIf, NextIconComponent, NextIconComponent],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css',
 })

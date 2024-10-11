@@ -10,6 +10,7 @@
           <span>{{ column.value }}</span>
           <button
             class="rounded-full hover:bg-black hover:bg-opacity-level-10 focus:bg-opacity-level-30 p-1 transition-colors"
+            aria-label="sort"
             (click)="onSortByColumn(column.id, column.sortingOrder)"
           >
             <ng-container
