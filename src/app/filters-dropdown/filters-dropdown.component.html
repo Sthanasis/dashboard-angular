@@ -11,7 +11,10 @@
     class="fixed w-full h-full top-0 left-0 z-[1]"
     (click)="close()"
   ></div>
-  <ul *ngIf="isOpen" class="z-[1] absolute bg-white shadow-lg py-2 rounded-lg">
+  <ul
+    *ngIf="isOpen"
+    class="z-[1] min-w-80 absolute bg-white shadow-lg py-2 rounded-lg right-0"
+  >
     <li
       *ngFor="let filter of filters"
       class="cursor-pointer hover:bg-black hover:bg-opacity-level-10 px-2"
