@@ -34,4 +34,9 @@ export const sortColumn = createAction(
   props<{ id: ApiResponseItemKey; order: SortingOrder }>()
 );
 
+export const setSearchText = createAction(
+  '[Currency Table Component] SetSearchText',
+  props<{ text: string }>()
+);
+
 export const reset = createAction('[Currency Table Component] Reset');

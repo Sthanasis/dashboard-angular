@@ -1,0 +1,9 @@
+<form (submit)="$event.preventDefault()">
+  <input
+    class="bg-white border-gray-200 border rounded-md p-2 border-solid"
+    type="text"
+    name="text"
+    [(ngModel)]="text"
+    (input)="onTextChange()"
+  />
+</form>

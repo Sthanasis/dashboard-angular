@@ -4,6 +4,7 @@ import {
   appendTableRows,
   hideTableColumn,
   reset,
+  setSearchText,
   showTableColumn,
   sortColumn,
 } from './currency-table.actions';
@@ -27,6 +28,7 @@ export interface CurrencyTableState {
   rows: Row<ApiResponseItemKey>[];
   filteredColumns: ApiResponseItemKey[];
   sortOptions: SortOptions;
+  searchText: string;
 }
 
 const initialColumnList: Column<ApiResponseItemKey>[] = [
@@ -64,6 +66,7 @@ export const initialState: CurrencyTableState = {
   rows: [],
   filteredColumns: [],
   sortOptions: { id: null, order: SortingOrder.default },
+  searchText: '',
 };
 
 export const currencyTableReducer = createReducer(
@@ -95,6 +98,10 @@ export const currencyTableReducer = createReducer(
   on(sortColumn, (state, { id, order }) => ({
     ...state,
     sortOptions: { id, order },
+  })),
+  on(setSearchText, (state, { text }) => ({
+    ...state,
+    searchText: text,
   })),
   on(reset, () => initialState)
 );

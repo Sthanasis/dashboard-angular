@@ -12,6 +12,7 @@ const state = createFeatureSelector<CurrencyTableState>(
 const selectColumns = createSelector(state, (state) => {
   return state.columns;
 });
+
 const selectFilteredColumns = createSelector(
   state,
   (state) => state.filteredColumns
@@ -34,6 +35,10 @@ const compare = (a: string | number, b: string | number) => {
   }
 };
 
+export const selectSearchText = createSelector(state, (state) => {
+  return state.searchText;
+});
+
 export const selectTableColumns = createSelector(
   selectColumns,
   selectFilteredColumns,
@@ -52,7 +57,8 @@ export const selectTableRows = createSelector(
   selectFilteredColumns,
   selectRows,
   selectSortingOptions,
-  (filteredColumnIds, rows, sortOptions) => {
+  selectSearchText,
+  (filteredColumnIds, rows, sortOptions, searchText) => {
     return rows
       .map((row) => ({
         id: row.id,
@@ -60,6 +66,11 @@ export const selectTableRows = createSelector(
           (item) => !filteredColumnIds.includes(item.name)
         ),
       }))
+      .filter((row) =>
+        row.items.some((item) =>
+          item.value.toString().toLowerCase().match(searchText.toLowerCase())
+        )
+      )
       .sort((a, b) => {
         if (sortOptions.order === SortingOrder.default) return 0;
         const compareA = a.items.find((item) => sortOptions.id === item.name);

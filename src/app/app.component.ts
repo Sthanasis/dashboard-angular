@@ -7,15 +7,24 @@ import { FiltersDropdownComponent } from './filters-dropdown/filters-dropdown.co
 import { Store } from '@ngrx/store';
 import {
   selectFilters,
+  selectSearchText,
   selectTable,
 } from '../store/currency-table/currency-table.selectors';
 import {
   hideTableColumn,
   loadCurrencyData,
+  setSearchText,
   showTableColumn,
   sortColumn,
 } from '../store/currency-table/currency-table.actions';
-import { Observable } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+} from 'rxjs';
 import { Column, Row } from './data-table/types/data-table.types';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { PaginationComponent } from './pagination/pagination.component';
@@ -24,6 +33,7 @@ import {
   setTotalPerPage,
 } from '../store/pagination/pagination.actions';
 import { selectPagination } from '../store/pagination/pagination.selectors';
+import { SearchComponent } from './search/search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -35,6 +45,7 @@ import { selectPagination } from '../store/pagination/pagination.selectors';
     NgIf,
     JsonPipe,
     PaginationComponent,
+    SearchComponent,
   ],
   templateUrl: './app.component.html',
 })
@@ -45,6 +56,7 @@ export class AppComponent implements OnInit {
   }> = this.store.select((state) => selectTable(state));
   filters$ = this.store.select((state) => selectFilters(state));
   pagination$ = this.store.select((state) => selectPagination(state));
+  searchText$ = this.store.select((state) => selectSearchText(state));
 
   constructor(private store: Store) {}
 
@@ -68,6 +80,10 @@ export class AppComponent implements OnInit {
 
   handleTotalChange(total: number) {
     this.store.dispatch(setTotalPerPage({ total }));
+  }
+
+  handleSearch(text: string) {
+    this.store.dispatch(setSearchText({ text }));
   }
 
   ngOnInit() {

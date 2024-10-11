@@ -4,6 +4,7 @@
     [filters]="filters"
     (filterClickEvent)="filterColumn($event.id, $event.isActive)"
   />
+  <app-search (textChange)="handleSearch($event)" />
   <app-data-table
     *ngIf="table$ | async as table"
     [columns]="table.columns"
