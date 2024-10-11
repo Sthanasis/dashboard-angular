@@ -5,4 +5,5 @@ import { ChartContainerComponent } from './chart-container/chart-container.compo
 export const routes: Routes = [
   { path: 'table', component: TableContainerComponent },
   { path: 'chart', component: ChartContainerComponent },
+  { path: '', redirectTo: '/table', pathMatch: 'full' },
 ];

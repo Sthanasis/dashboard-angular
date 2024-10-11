@@ -1,20 +1,23 @@
 <nav
-  class="flex flex-col h-full bg-snow-white py-2 border border-r-gray-300 border-solid"
+  class="flex flex-col h-full bg-snow-white border border-r-gray-300 border-solid"
 >
-  <a
-    class="cursor-pointer p-2 hover:bg-smokey-gray"
-    routerLink="/table"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-  >
-    Table
-  </a>
-  <a
-    class="cursor-pointer p-2 hover:bg-smokey-gray"
-    routerLink="/chart"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-  >
-    Chart
-  </a>
+  <h1 class="py-4 px-2 text-lg text-bold">Dashboard</h1>
+  <div class="py-4 w-full flex flex-col text-center">
+    <a
+      class="cursor-pointer p-2 hover:bg-smokey-gray"
+      routerLink="/table"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Table
+    </a>
+    <a
+      class="cursor-pointer p-2 hover:bg-smokey-gray"
+      routerLink="/chart"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Chart
+    </a>
+  </div>
 </nav>
