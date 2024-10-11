@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SearchIconComponent } from '../search-icon/search-icon.component';
+import { SearchIconComponent } from '../../icons/search-icon/search-icon.component';
 
 @Component({
   selector: 'app-search',

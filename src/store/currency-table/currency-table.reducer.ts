@@ -12,8 +12,11 @@ import {
   ApiResponseItem,
   ApiResponseItemKey,
 } from '../../services/types/apiResponseItem.type';
-import { Column, Row } from '../../app/data-table/types/data-table.types';
-import { SortingOrder } from '../../app/data-table/enums/sortingOrder.enum';
+import {
+  Column,
+  Row,
+} from '../../app/components/data-table/types/data-table.types';
+import { SortingOrder } from '../../app/components/data-table/enums/sortingOrder.enum';
 
 export const currencyTableFeatureKey = 'currencyTable';
 

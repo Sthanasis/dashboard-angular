@@ -3,7 +3,7 @@ import {
   currencyTableFeatureKey,
   CurrencyTableState,
 } from './currency-table.reducer';
-import { SortingOrder } from '../../app/data-table/enums/sortingOrder.enum';
+import { SortingOrder } from '../../app/components/data-table/enums/sortingOrder.enum';
 
 const state = createFeatureSelector<CurrencyTableState>(
   currencyTableFeatureKey

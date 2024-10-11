@@ -7,7 +7,7 @@ import {
   selectSearchText,
 } from '../../store/currency-table/currency-table.selectors';
 import { selectPagination } from '../../store/pagination/pagination.selectors';
-import { Column, Row } from '../data-table/types/data-table.types';
+import { Column, Row } from '../components/data-table/types/data-table.types';
 import { Store } from '@ngrx/store';
 import {
   hideTableColumn,
@@ -19,13 +19,13 @@ import {
   setCurrentPage,
   setTotalPerPage,
 } from '../../store/pagination/pagination.actions';
-import { SortingOrder } from '../data-table/enums/sortingOrder.enum';
+import { SortingOrder } from '../components/data-table/enums/sortingOrder.enum';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { DataTableComponent } from '../data-table/data-table.component';
-import { FiltersDropdownComponent } from '../filters-dropdown/filters-dropdown.component';
-import { PaginationComponent } from '../pagination/pagination.component';
-import { SearchComponent } from '../search/search.component';
+import { DataTableComponent } from '../components/data-table/data-table.component';
+import { FiltersDropdownComponent } from '../components/filters-dropdown/filters-dropdown.component';
+import { PaginationComponent } from '../components/pagination/pagination.component';
+import { SearchComponent } from '../components/search/search.component';
 
 @Component({
   selector: 'app-table-container',

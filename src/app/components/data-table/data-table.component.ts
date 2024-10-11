@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgFor, NgIf, NgComponentOutlet } from '@angular/common';
 import { Column, Row } from './types/data-table.types';
-import { SortIconComponent } from '../sort-icon/sort-icon.component';
+import { SortIconComponent } from '../../icons/sort-icon/sort-icon.component';
 import { SortingOrder } from './enums/sortingOrder.enum';
-import { SortAscIconComponent } from '../sort-asc-icon/sort-asc-icon.component';
-import { SortDescIconComponent } from '../sort-desc-icon/sort-desc-icon.component';
+import { SortAscIconComponent } from '../../icons/sort-asc-icon/sort-asc-icon.component';
+import { SortDescIconComponent } from '../../icons/sort-desc-icon/sort-desc-icon.component';
 
 @Component({
   selector: 'app-data-table',

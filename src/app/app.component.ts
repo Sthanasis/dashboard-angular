@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { loadCurrencyData } from '../store/currency-table/currency-table.actions';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 @Component({
   selector: 'app-root',
   standalone: true,

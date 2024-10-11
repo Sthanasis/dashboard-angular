@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { NextIconComponent } from '../next-icon/next-icon.component';
+import { NextIconComponent } from '../../icons/next-icon/next-icon.component';
 
 @Component({
   selector: 'app-pagination',

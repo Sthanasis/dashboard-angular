@@ -1,7 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AppFilter } from './types/appFilter';
-import { FilterIconComponent } from '../filter-icon/filter-icon.component';
+import { FilterIconComponent } from '../../icons/filter-icon/filter-icon.component';
 
 @Component({
   selector: 'app-filters-dropdown',
