@@ -1,0 +1,22 @@
+<div class="bg-snow-white p-2 rounded-md border-gray-300 border border-solid">
+  <div
+    echarts
+    [options]="{
+    xAxis: {
+      type: 'category',
+      data: xAxisData,
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: yAxisData,
+        type: 'line',
+      },
+    ],
+    tooltip: {},
+  }"
+    class="h-96"
+  ></div>
+</div>

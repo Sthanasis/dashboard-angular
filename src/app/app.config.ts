@@ -20,6 +20,8 @@ import {
   paginationFeatureKey,
 } from '../store/pagination/pagination.reducer';
 import { PaginationEffects } from '../store/pagination/pagination.effects';
+import { chartFeatureKey, chartReducer } from '../store/chart/chart.reducer';
+import { ChartEffects } from '../store/chart/chart.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,9 +30,10 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       [currencyTableFeatureKey]: currencyTableReducer,
       [paginationFeatureKey]: paginationReducer,
+      [chartFeatureKey]: chartReducer,
     }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(CurrencyTableEffects, PaginationEffects),
+    provideEffects(CurrencyTableEffects, PaginationEffects, ChartEffects),
     provideHttpClient(),
   ],
 };

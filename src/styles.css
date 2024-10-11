@@ -6,4 +6,6 @@
 body {
   @apply bg-smokey-gray;
   @apply text-dark-steel;
+  @apply h-screen;
+  @apply w-screen;
 }

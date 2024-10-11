@@ -1,0 +1,9 @@
+<section>
+  <h1 class="text-xl my-3">Top Markets Capitalization Chart</h1>
+
+  <app-chart
+    *ngIf="chart$ | async as chart"
+    [xAxisData]="chart.labels"
+    [yAxisData]="chart.data"
+  ></app-chart>
+</section>

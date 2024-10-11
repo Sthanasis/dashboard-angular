@@ -1,0 +1,32 @@
+<section>
+  <h1 class="text-xl my-3">Currencies</h1>
+  <app-data-table
+    *ngIf="table$ | async as table"
+    [columns]="table.columns"
+    [rows]="table.rows"
+    (sortByColumn)="sortByColumn($event.id, $event.order)"
+  >
+    <div
+      ngProjectAs="table-header"
+      class="flex justify-end gap-3 items-center px-4"
+    >
+      <app-search (textChange)="handleSearch($event)" />
+      <app-filters-dropdown
+        *ngIf="filters$ | async as filters"
+        [filters]="filters"
+        (filterClickEvent)="filterColumn($event.id, $event.isActive)"
+      />
+    </div>
+    <div ngProjectAs="table-footer">
+      <app-pagination
+        *ngIf="pagination$ | async as pagination"
+        [total]="pagination.totalList"
+        [currentTotal]="pagination.total"
+        [currentPage]="pagination.currentPage"
+        (nextPage)="loadNextPage($event)"
+        (previousPage)="loadPreviousPage($event)"
+        (totalChange)="handleTotalChange($event)"
+      />
+    </div>
+  </app-data-table>
+</section>
