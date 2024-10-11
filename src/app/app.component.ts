@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { loadCurrencyData } from '../store/currency-table/currency-table.actions';
 import { NavigationBarComponent } from './common/navigation-bar/navigation-bar.component';
+import { loadCurrencyData } from '../store/currency-data/currency-data.actions';
 @Component({
   selector: 'app-root',
   standalone: true,

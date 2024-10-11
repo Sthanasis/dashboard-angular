@@ -1,22 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
+import { CurrencyDataEffects } from './currency-data.effects';
 
-import { CurrencyTableEffects } from './currency-table.effects';
-
-describe('CurrencyTableEffects', () => {
+describe('CurrencyDataEffects', () => {
   let actions$: Observable<any>;
-  let effects: CurrencyTableEffects;
+  let effects: CurrencyDataEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        CurrencyTableEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [CurrencyDataEffects, provideMockActions(() => actions$)],
     });
 
-    effects = TestBed.inject(CurrencyTableEffects);
+    effects = TestBed.inject(CurrencyDataEffects);
   });
 
   it('should be created', () => {

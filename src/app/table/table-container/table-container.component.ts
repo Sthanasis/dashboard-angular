@@ -5,7 +5,7 @@ import {
   selectTable,
   selectFilters,
   selectSearchText,
-} from '../../../store/currency-table/currency-table.selectors';
+} from '../../../store/table/table.selectors';
 import { selectPagination } from '../../../store/pagination/pagination.selectors';
 import { Column, Row } from '../data-table/types/data-table';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import {
   showTableColumn,
   sortColumn,
   setSearchText,
-} from '../../../store/currency-table/currency-table.actions';
+} from '../../../store/table/table.actions';
 import {
   setCurrentPage,
   setTotalPerPage,

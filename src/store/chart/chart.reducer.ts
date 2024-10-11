@@ -14,6 +14,9 @@ export const initialState: ChartState = {
 
 export const chartReducer = createReducer(
   initialState,
-  on(setChartData, (state, { labels, data }) => ({ labels, data })),
+  on(setChartData, (state, { data }) => ({
+    labels: data.map((item) => item.name),
+    data: data.map((item) => item.market_cap),
+  })),
   on(reset, () => initialState)
 );

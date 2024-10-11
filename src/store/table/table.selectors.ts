@@ -1,8 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import {
-  currencyTableFeatureKey,
-  CurrencyTableState,
-} from './currency-table.reducer';
+import { currencyTableFeatureKey, CurrencyTableState } from './table.reducer';
 import { SortingOrder } from '../../app/table/data-table/enums/sortingOrder';
 
 const state = createFeatureSelector<CurrencyTableState>(

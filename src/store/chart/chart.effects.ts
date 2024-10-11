@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, of } from 'rxjs';
-import { appendCurrencyData } from '../currency-table/currency-table.actions';
 import { setChartData } from './chart.actions';
+import { appendCurrencyData } from '../currency-data/currency-data.actions';
 
 @Injectable()
 export class ChartEffects {
@@ -12,8 +12,7 @@ export class ChartEffects {
       exhaustMap(({ data }) =>
         of(
           setChartData({
-            labels: data.map((item) => item.name),
-            data: data.map((item) => item.market_cap),
+            data,
           })
         )
       )

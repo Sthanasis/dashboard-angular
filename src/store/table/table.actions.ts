@@ -5,38 +5,29 @@ import {
 } from '../../services/types/apiResponseItem';
 import { SortingOrder } from '../../app/table/data-table/enums/sortingOrder';
 
-export const loadCurrencyData = createAction(
-  '[Currency Table Component] LoadCurrencyData'
-);
-
-export const appendCurrencyData = createAction(
-  '[Currency Table Component] AppendCurrencyData',
-  props<{ data: ApiResponseItem[] }>()
-);
-
 export const hideTableColumn = createAction(
-  '[Currency Table Component] HideTableColumn',
+  '[Table Component] HideTableColumn',
   props<{ id: ApiResponseItemKey }>()
 );
 
 export const showTableColumn = createAction(
-  '[Currency Table Component] ShowTableColumn',
+  '[Table Component] ShowTableColumn',
   props<{ id: ApiResponseItemKey }>()
 );
 
 export const appendTableRows = createAction(
-  '[Currency Table Component] AppendTableRows',
+  '[Table Component] AppendTableRows',
   props<{ data: ApiResponseItem[] }>()
 );
 
 export const sortColumn = createAction(
-  '[Currency Table Component] SortColumn',
+  '[Table Component] SortColumn',
   props<{ id: ApiResponseItemKey; order: SortingOrder }>()
 );
 
 export const setSearchText = createAction(
-  '[Currency Table Component] SetSearchText',
+  '[Table Component] SetSearchText',
   props<{ text: string }>()
 );
 
-export const reset = createAction('[Currency Table Component] Reset');
+export const reset = createAction('[Table Component] Reset');

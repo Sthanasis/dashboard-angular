@@ -1,13 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  appendCurrencyData,
   appendTableRows,
   hideTableColumn,
   reset,
   setSearchText,
   showTableColumn,
   sortColumn,
-} from './currency-table.actions';
+} from './table.actions';
 import {
   ApiResponseItem,
   ApiResponseItemKey,
@@ -23,7 +22,6 @@ export type SortOptions = {
 };
 
 export interface CurrencyTableState {
-  data: ApiResponseItem[];
   columns: Column<ApiResponseItemKey>[];
   rows: Row<ApiResponseItemKey>[];
   filteredColumns: ApiResponseItemKey[];
@@ -61,7 +59,6 @@ const initialColumnList: Column<ApiResponseItemKey>[] = [
 ];
 
 export const initialState: CurrencyTableState = {
-  data: [],
   columns: initialColumnList,
   rows: [],
   filteredColumns: [],
@@ -71,10 +68,6 @@ export const initialState: CurrencyTableState = {
 
 export const currencyTableReducer = createReducer(
   initialState,
-  on(appendCurrencyData, (state, { data }) => ({
-    ...state,
-    data,
-  })),
   on(appendTableRows, (state, { data }) => ({
     ...state,
     rows: data.map((item, i) => ({
