@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, EMPTY, exhaustMap, of, switchMap } from 'rxjs';
-import { CurrencyTableService } from '../../services/currency-table.service';
+import { CurrencyService } from '../../services/currency.service';
 import {
   appendCurrencyData,
   appendTableRows,
@@ -39,6 +39,6 @@ export class PaginationEffects {
   });
   constructor(
     private actions$: Actions,
-    private currencyService: CurrencyTableService
+    private currencyService: CurrencyService
   ) {}
 }

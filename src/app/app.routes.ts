@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { TableContainerComponent } from './table-container/table-container.component';
-import { ChartContainerComponent } from './chart-container/chart-container.component';
+import { TableContainerComponent } from '../app/table/table-container/table-container.component';
+import { ChartContainerComponent } from '../app/chart/chart-container/chart-container.component';
 
 export const routes: Routes = [
   { path: 'table', component: TableContainerComponent },

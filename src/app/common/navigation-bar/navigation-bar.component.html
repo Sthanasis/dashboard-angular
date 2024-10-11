@@ -1,0 +1,25 @@
+<nav
+  class="flex flex-col h-full bg-snow-white border border-r-gray-300 border-solid"
+>
+  <h1 class="p-4 pl-2 text-lg font-bold">Dashboard</h1>
+  <div class="py-4 w-full flex flex-col">
+    <a
+      class="cursor-pointer p-2 hover:bg-smokey-gray flex items-center justify-between"
+      routerLink="/table"
+      routerLinkActive="bg-primary text-snow-white  hover:bg-primary"
+      ariaCurrentWhenActive="page"
+    >
+      Table
+      <app-table-icon></app-table-icon>
+    </a>
+    <a
+      class="cursor-pointer p-2 hover:bg-smokey-gray flex items-center justify-between"
+      routerLink="/chart"
+      routerLinkActive="bg-primary text-snow-white hover:bg-primary"
+      ariaCurrentWhenActive="page"
+    >
+      Chart
+      <app-chart-icon></app-chart-icon>
+    </a>
+  </div>
+</nav>

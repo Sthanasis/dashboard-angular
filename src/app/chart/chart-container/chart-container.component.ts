@@ -1,8 +1,8 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectChart } from '../../store/chart/chart.selectors';
-import { ChartComponent } from '../components/chart/chart.component';
+import { ChartComponent } from '../chart/chart.component';
+import { selectChart } from '../../../store/chart/chart.selectors';
 
 @Component({
   selector: 'app-chart-container',

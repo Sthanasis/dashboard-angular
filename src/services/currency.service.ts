@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponseItem } from './types/apiResponseItem.type';
+import { ApiResponseItem } from './types/apiResponseItem';
 import { INITIAL_TOTAL_COUNT } from '../store/pagination/pagination.reducer';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CurrencyTableService {
+export class CurrencyService {
   totalPerPage: number = INITIAL_TOTAL_COUNT;
   constructor(private http: HttpClient) {}
 

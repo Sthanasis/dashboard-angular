@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponseItemKey } from '../../services/types/apiResponseItem.type';
+import { ApiResponseItemKey } from '../../../services/types/apiResponseItem';
 import {
   selectTable,
   selectFilters,
   selectSearchText,
-} from '../../store/currency-table/currency-table.selectors';
-import { selectPagination } from '../../store/pagination/pagination.selectors';
-import { Column, Row } from '../components/data-table/types/data-table.types';
+} from '../../../store/currency-table/currency-table.selectors';
+import { selectPagination } from '../../../store/pagination/pagination.selectors';
+import { Column, Row } from '../data-table/types/data-table';
 import { Store } from '@ngrx/store';
 import {
   hideTableColumn,
   showTableColumn,
   sortColumn,
   setSearchText,
-} from '../../store/currency-table/currency-table.actions';
+} from '../../../store/currency-table/currency-table.actions';
 import {
   setCurrentPage,
   setTotalPerPage,
-} from '../../store/pagination/pagination.actions';
-import { SortingOrder } from '../components/data-table/enums/sortingOrder.enum';
+} from '../../../store/pagination/pagination.actions';
+import { SortingOrder } from '../data-table/enums/sortingOrder';
 import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { DataTableComponent } from '../components/data-table/data-table.component';
-import { FiltersDropdownComponent } from '../components/filters-dropdown/filters-dropdown.component';
-import { PaginationComponent } from '../components/pagination/pagination.component';
-import { SearchComponent } from '../components/search/search.component';
+import { DataTableComponent } from '../data-table/data-table.component';
+import { FiltersDropdownComponent } from '../filters-dropdown/filters-dropdown.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-table-container',
