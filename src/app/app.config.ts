@@ -23,6 +23,8 @@ import { PaginationEffects } from '../store/pagination/pagination.effects';
 import { chartFeatureKey, chartReducer } from '../store/chart/chart.reducer';
 import { ChartEffects } from '../store/chart/chart.effects';
 import { CurrencyDataEffects } from '../store/currency-data/currency-data.effects';
+import { errorFeatureKey, errorReducer } from '../store/error/error.reducer';
+import { ErrorEffects } from '../store/error/error.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,13 +34,15 @@ export const appConfig: ApplicationConfig = {
       [currencyTableFeatureKey]: currencyTableReducer,
       [paginationFeatureKey]: paginationReducer,
       [chartFeatureKey]: chartReducer,
+      [errorFeatureKey]: errorReducer,
     }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideEffects(
       CurrencyTableEffects,
       PaginationEffects,
       ChartEffects,
-      CurrencyDataEffects
+      CurrencyDataEffects,
+      ErrorEffects
     ),
     provideHttpClient(),
   ],

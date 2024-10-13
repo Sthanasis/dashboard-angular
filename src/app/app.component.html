@@ -3,4 +3,14 @@
   <div class="p-5 w-full overflow-auto">
     <router-outlet />
   </div>
+  <div
+    class="fixed bottom-[10px] right-0 -translate-x-1/4 flex flex-col gap-2 z-10"
+  >
+    <div
+      *ngFor="let error of errorList$ | async"
+      class="p-2 bg-red-600 text-snow-white rounded-md"
+    >
+      {{ error }}
+    </div>
+  </div>
 </div>

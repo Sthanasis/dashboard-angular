@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { reset, setCurrentPage, setTotalPerPage } from './pagination.actions';
-import { TotalCount } from '../constants/totalCount';
+import { TotalCount } from './constants/totalCount';
 
 export const paginationFeatureKey = 'pagination';
 export const INITIAL_TOTAL_COUNT = TotalCount.TwentyFive;
