@@ -9,7 +9,6 @@ import { selectChart } from '../../../store/chart/chart.selectors';
   standalone: true,
   imports: [AsyncPipe, ChartComponent, NgIf],
   templateUrl: './chart-container.component.html',
-  styleUrl: './chart-container.component.css',
 })
 export class ChartContainerComponent {
   chart$ = this.store.select((state) => selectChart(state));

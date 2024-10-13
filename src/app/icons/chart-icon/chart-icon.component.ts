@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './chart-icon.component.html',
-  styleUrl: './chart-icon.component.css'
 })
-export class ChartIconComponent {
-
-}
+export class ChartIconComponent {}

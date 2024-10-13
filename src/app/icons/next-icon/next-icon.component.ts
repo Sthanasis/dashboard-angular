@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './next-icon.component.html',
-  styleUrl: './next-icon.component.css',
 })
 export class NextIconComponent {}

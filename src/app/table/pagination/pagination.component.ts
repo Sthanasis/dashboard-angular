@@ -7,7 +7,6 @@ import { NextIconComponent } from '../../icons/next-icon/next-icon.component';
   standalone: true,
   imports: [NgFor, NgIf, NextIconComponent, NextIconComponent],
   templateUrl: './pagination.component.html',
-  styleUrl: './pagination.component.css',
 })
 export class PaginationComponent {
   @Input() total: number[] = [];

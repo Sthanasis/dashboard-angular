@@ -41,7 +41,6 @@ import { SearchComponent } from '../search/search.component';
     SearchComponent,
   ],
   templateUrl: './table-container.component.html',
-  styleUrl: './table-container.component.css',
 })
 export class TableContainerComponent {
   table$: Observable<{

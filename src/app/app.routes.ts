@@ -6,4 +6,5 @@ export const routes: Routes = [
   { path: 'table', component: TableContainerComponent },
   { path: 'chart', component: ChartContainerComponent },
   { path: '', redirectTo: '/table', pathMatch: 'full' },
+  { path: '**', redirectTo: '/table' },
 ];
