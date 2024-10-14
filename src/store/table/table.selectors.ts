@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { currencyTableFeatureKey, CurrencyTableState } from './table.reducer';
 import { SortingOrder } from '../../app/table/data-table/enums/sortingOrder';
+import { compare } from './utilities/compare';
 
 const state = createFeatureSelector<CurrencyTableState>(
   currencyTableFeatureKey
@@ -21,16 +22,6 @@ const selectSortingOptions = createSelector(
   state,
   (state) => state.sortOptions
 );
-
-const compare = (a: string | number, b: string | number) => {
-  if (a > b) {
-    return 1;
-  } else if (a < b) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
 
 export const selectSearchText = createSelector(state, (state) => {
   return state.searchText;
